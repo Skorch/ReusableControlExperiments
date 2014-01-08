@@ -49,7 +49,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
-                                    <segue destination="cEt-PE-Sz5" kind="embed" id="BhX-Ov-3Yn"/>
+                                    <segue destination="cEt-PE-Sz5" kind="embed" identifier="datePicker" id="BhX-Ov-3Yn"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -239,7 +239,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="black_triangle" width="256" height="256"/>
+        <image name="black_triangle" width="30" height="30"/>
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>

@@ -31,9 +31,21 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    
 }
 
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if([segue.identifier isEqualToString:@"datePicker"])
+    {
+        _birthdateController = segue.destinationViewController;
+        [self.birthdateController setValidateBlock:^BOOL(NSDate *date, BOOL completed) {
+            return !completed || date != nil;
+        }];
+    }
+}
 
 - (IBAction)resetButtonTouchUpInside:(id)sender {
     [self.birthdateController resetDate];
