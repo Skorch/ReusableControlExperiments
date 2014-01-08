@@ -171,7 +171,7 @@
                             </containerView>
                         </subviews>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Slider" id="zVw-2r-nvD"/>
+                    <tabBarItem key="tabBarItem" title="Slider" image="black_triangle" id="zVw-2r-nvD"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jN1-h6-ARp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -239,6 +239,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="black_triangle" width="256" height="256"/>
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>

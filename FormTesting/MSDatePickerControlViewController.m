@@ -11,7 +11,7 @@
 @interface MSDatePickerControlViewController ()
 
 @property (nonatomic, strong) NSDate *dateValue;
-
+@property (nonatomic, strong) NSDateFormatter *dateFormatter;
 
 @end
 
@@ -44,6 +44,9 @@
     self.dateSelectorMonthTextField.delegate = self;
     self.dateSelectorYearTextField.delegate = self;
     self.birthdateTextField.delegate = self;
+    
+    _dateFormatter = [[NSDateFormatter alloc]init];
+    self.dateFormatter.dateStyle = NSDateFormatterMediumStyle;
     
 }
 
@@ -78,10 +81,9 @@
 
 - (void)processDateFields:(UITextField *)field{
     
-    [self dateFieldComplete:field];
     
     
-    BOOL fieldComplete = self.dateSelectorYearTextField.text.length &&
+    BOOL fieldComplete = self.dateSelectorYearTextField.text.length == 4 &&
                         self.dateSelectorMonthTextField.text.length &&
                         self.dateSelectorDayTextField.text.length;
     
@@ -94,11 +96,8 @@
                                                    monthField:self.dateSelectorMonthTextField
                                                      dayField:self.dateSelectorDayTextField];
         if(textFieldDate){
-
-            NSDateFormatter *df = [[NSDateFormatter alloc]init];
-            df.dateStyle = NSDateFormatterMediumStyle;
             
-            self.birthdateTextField.text = [df stringFromDate:self.dateValue];
+            self.birthdateTextField.text = [self.dateFormatter stringFromDate:textFieldDate];
         }
         
     }
@@ -112,14 +111,11 @@
     }
 
     self.dateSelectorView.backgroundColor = viewColor;
+    
+    [self dateFieldComplete:field];
 
 }
 
-- (IBAction)birthdateTextFieldEditingDidBegin:(id)sender {
-    
-    
-    
-}
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     
